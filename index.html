@@ -1,15 +1,112 @@
-<!doctype html>
-<html lang="pt-BR" class="bg-white">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="NUVEM STORE - O chinelo mais confortável da galáxia! Chinelos estilo Yeezy Nuvem com 30% OFF. Frete grátis para todo Brasil." />
-    <meta name="keywords" content="chinelo yeezy, chinelo nuvem, conforto, estilo, promoção, desconto, frete grátis" />
-    <title>NUVEM STORE - Chinelos Yeezy Nuvem | 30% OFF por Tempo Limitado!</title>
-  </head>
-  <body class="bg-white">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinelo Yeezy Nuvem - NUVEM STORE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; }
+    </style>
+</head>
+<body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+    <script type="module">
+        import React, { useState } from 'https://esm.sh/react@18.3.1';
+        import ReactDOM from 'https://esm.sh/react-dom@18.3.1/client';
+
+        function App() {
+            const [selectedSize, setSelectedSize] = useState('38-39');
+            const [selectedColor, setSelectedColor] = useState('Preto');
+            const [quantity, setQuantity] = useState(1);
+
+            const sizes = ['36-37', '38-39', '40-41', '42-43', '44-45'];
+            const colors = ['Preto', 'Branco', 'Bege', 'Cinza'];
+
+            return React.createElement('div', { className: 'min-h-screen bg-white' },
+                // Header
+                React.createElement('header', {
+                    className: 'bg-black text-white py-3 text-center text-sm font-medium'
+                }, '🔥 OFERTA RELÂMPAGO: 30% OFF + FRETE GRÁTIS | ÚLTIMAS UNIDADES!'),
+
+                // Main Content
+                React.createElement('main', { className: 'max-w-7xl mx-auto px-4 py-8 md:py-16' },
+                    React.createElement('div', { className: 'grid md:grid-cols-2 gap-8 md:gap-12' },
+                        // Product Image
+                        React.createElement('div', { className: 'space-y-4' },
+                            React.createElement('div', {
+                                className: 'aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl flex items-center justify-center shadow-xl'
+                            },
+                                React.createElement('div', { className: 'text-center p-8' },
+                                    React.createElement('div', { className: 'text-8xl mb-4' }, '👟'),
+                                    React.createElement('p', { className: 'text-slate-600 font-medium' }, 'Chinelo Yeezy Nuvem')
+                                )
+                            )
+                        ),
+
+                        // Product Info
+                        React.createElement('div', { className: 'space-y-6' },
+                            React.createElement('div', null,
+                                React.createElement('h1', {
+                                    className: 'text-4xl md:text-5xl font-bold text-slate-900 mb-4'
+                                }, 'Chinelo Yeezy Nuvem'),
+                                React.createElement('p', {
+                                    className: 'text-slate-600 text-lg leading-relaxed'
+                                }, 'O chinelo mais confortável da galáxia! Design inovador inspirado nos Yeezy Slides.')
+                            ),
+
+                            // Price
+                            React.createElement('div', { className: 'bg-slate-50 rounded-xl p-6' },
+                                React.createElement('div', { className: 'flex items-baseline gap-3 mb-2' },
+                                    React.createElement('span', { className: 'text-4xl font-bold text-slate-900' }, 'R$ 139,90'),
+                                    React.createElement('span', { className: 'text-2xl text-slate-400 line-through' }, 'R$ 199,90'),
+                                    React.createElement('span', { className: 'bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold' }, '-30%')
+                                ),
+                                React.createElement('p', { className: 'text-slate-600' }, 'ou 3x de R$ 46,63 sem juros')
+                            ),
+
+                            // Size Selection
+                            React.createElement('div', null,
+                                React.createElement('label', { className: 'block text-sm font-semibold text-slate-900 mb-3' },
+                                    'Tamanho: ', React.createElement('span', { className: 'font-normal text-slate-600' }, selectedSize)
+                                ),
+                                React.createElement('div', { className: 'flex flex-wrap gap-2' },
+                                    sizes.map(size =>
+                                        React.createElement('button', {
+                                            key: size,
+                                            onClick: () => setSelectedSize(size),
+                                            className: `px-6 py-3 rounded-lg font-medium transition-all ${
+                                                selectedSize === size
+                                                    ? 'bg-black text-white shadow-lg scale-105'
+                                                    : 'bg-white border-2 border-slate-200 text-slate-700 hover:border-slate-900'
+                                            }`
+                                        }, size)
+                                    )
+                                )
+                            ),
+
+                            // Buy Button
+                            React.createElement('button', {
+                                className: 'w-full bg-black text-white py-5 rounded-xl font-bold text-lg hover:bg-slate-800 transition-colors shadow-lg hover:shadow-xl'
+                            }, '🛒 COMPRAR AGORA')
+                        )
+                    )
+                ),
+
+                // Footer
+                React.createElement('footer', { className: 'bg-slate-900 text-white py-12 mt-24' },
+                    React.createElement('div', { className: 'max-w-7xl mx-auto px-4 text-center' },
+                        React.createElement('h2', { className: 'text-2xl font-bold mb-2' }, 'NUVEM STORE'),
+                        React.createElement('p', { className: 'text-slate-400' }, 'O chinelo mais confortável da galáxia')
+                    )
+                )
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(App));
+    </script>
+</body>
 </html>
